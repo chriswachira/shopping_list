@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="../static/css/bootstrap.css">
+        <link href="../static/design.css" type="text/css" rel="stylesheet" >
+        <script src="../static/js/bootstrap.min.js">
+        <script src="../static/js/bootstrap.js"</script>
+    </head>
+	
+	<body>
+        
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><h1>Shopping List</h1></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                </ul>
+            </div>
+        </nav>
+
+          <div class="container">
+            <div class="row">
+                <div class="col-sm-4" id="welcome_panel">
+                    <h3>Welcome back!</h3>
+                    <p>We've been waiting for you...</p>
+                </div>
+
+                <div class="col-sm-4">
+                </div>
+
+
+                <div class="col-sm-4" id="login_panel">
+                        <div class="form-group">
+                            <label for="usr"></label>
+                            <input type="text" class="form-control" id="usr" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd"></label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Password">
+
+                            <br/>
+                            <button type="button" class="btn btn-primary btn-lg" id="btn_login">Log in</button>
+                            <br/><br/>
+
+
+                        </div>
+                        
+                        <a href="sign_up.html" id="sign_up_link">Don't have an account? Sign up for free! ></a>
+                </div>  
+
+
+            
+            
+
+            </div>
+        </div>
+        {% block body %}
+        {% endblock %}	            
+		</div>
+	</body>
+	
+	
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
