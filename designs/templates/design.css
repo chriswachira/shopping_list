@@ -21,6 +21,8 @@ h1{
 	font-size: 200%;
 	font-family: sans-serif;
 	margin-top: 10px;
+    padding-top: 15px;
+    padding-left: 20px;
 }
 
 #login_panel{
@@ -36,7 +38,7 @@ h1{
 		margin-bottom: 30px;
 }
 
-#welcowwme{
+#welcome{
 	float:left;
 	background-color: none;
 	opacity: 0.7;
@@ -46,17 +48,60 @@ h1{
 
 }
 
+#login_label{
+    float: right;
+    font-size: 150%;
+    color: #0066ff;
+    margin-bottom: 50px;``
+    margin-top: 50px;
+}
+
 h2{
 	font-family: sans-serif;
 	font-size: 160%;
-	color: #00ff00;
+	color: #ffffff;
 	margin-top: 200px;
 	margin-left: 100px;
 }
 
+h3{
+	font-family: sans-serif;
+	font-size: 160%;
+	color: #00ff00;
+}
 
 
+input[type="text"] {
+    width: 400px;
+    height: 50px;
+    font-family: sans-serif;
+    float:left;
+    font-size: 16px;
+    margin-bottom: 80px;
+    margin-top: 100px;
 
+}
+
+input[type="password"] {
+    width: 400px;
+    height: 50px;
+    margin-left: 50px;
+    font-family: sans-serif;
+    font-size: 16px;
+
+}
+
+button{
+    background-color: #4CAF50;     
+    border: none;
+    color: white;
+    margin-top: 30px;
+    margin-left: 340px;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
 
 #wrapper{
 		width: 100%;
@@ -66,18 +111,12 @@ h2{
 }
 
 #usr{
-    margin-right: 80px;
+    margin-left: 150px;
+
 }
 
 #pwd{
     margin-right: 100px;
-}
-
-#login_panel label{
-    color: #ffffff;
-    margin-left: 60px;
-    font-size: 100%;
-    font-family: sans-serif;
 }
 
 .navbar-header{
