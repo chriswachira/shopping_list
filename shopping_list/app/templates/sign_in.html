@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,6 +24,8 @@
             </div>
         </nav>
 
+        {% block content %}
+
           <div class="container">
             <div class="row">
                 <div class="col-sm-4" id="welcome_panel">
@@ -35,9 +38,11 @@
 
 
                 <div class="col-sm-4" id="login_panel">
+                    <form action="." method="post">
+
                         <div class="form-group">
                             
-                            
+                                                        
                             <input type="text" class="form-control" id="usr" placeholder="Username"><br/>
 
 
@@ -54,7 +59,8 @@
 
                         </div>
                         
-                        <a href="sign_up.html" id="sign_up_link">Don't have an account? Sign up for free! ></a>
+                        <a href="signup" id="sign_up_link">Don't have an account? Sign up for free! ></a>
+                    </form>
                 </div>  
 
 
@@ -65,24 +71,9 @@
         </div>
                    
 		</div>
+
+        {% endblock content %}
 	</body>
 	
 	
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
