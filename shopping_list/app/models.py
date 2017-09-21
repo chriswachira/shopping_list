@@ -2,19 +2,49 @@ import datetime
 import json
 from decimal import Decimal
 
+users = [] #The global list of all users registered in the app
+items = []
+
+class Item(object):
+    """Creates an item"""
+    def __init__(self, name, price, quantity, vendor, descr):
+        self.name = name #name of item
+        self.price = price #price of item
+        self.vendor = vendor #item vendor/seller
+        self.quantity = quantity #remaining quantity of item
+        self.descr = descr # item description
+        self.rating = 0.0 # average rating of item
+
+    def view_item(self):
+        return {"name": self.name,
+                "price": self.price,
+                "vendor": self.vendor,
+                "quantity": self.quantity,
+                "descr": self.descr,
+                "rating": self.rating
+                }
+
+    #def rate_item(self, user_rating):
+    #    if user_rating > 5 and user_rating < 0:
+    #        return "Rating goes between 0 to 5"
+    #    else:
+
+    #        self.rating += user_rating
+
 class ShoppingList(object):
     """Creates Shopping List object"""
-    def __init__(self, name, user_id):
+    def __init__(self, name, username):
         self.name = name # name of shopping list
-        self.owner = user_id # owner of the list by user_id
+        self.author = username # owner of the list by user_id
         self.items = [] # item list in the list
         self.total = 0.0 # float for the total amount of the list's items
         self.likes = [] # list of users who like a shopping list. Program will use the count of
                         # users in the like list to determine total likes
 
-    def add_items(self, item_id):
+    def add_items(self, name, price, quantity):
         """Adds items to the shopping list"""
-        self.items.append(item_id)
+        _item = [{name : price}, quantity]
+        self.items.append(_item)
 
     def remove_item(self, item_id):
         """Removes items from the list"""
@@ -124,7 +154,7 @@ class User(object):
     #        else:
     #            return "Password incorrect. Remove user failed."
 
-users = []
+
 def add_user(attribs):
     global users
     username = attribs["username"]
@@ -170,3 +200,7 @@ def add_user(attribs):
 #        users.pop(user_dict_index)
 #    else:
 #        return "Password incorrect. Remove user failed."
+
+make_shopping_list(name, username):
+    shop_list = ShoppingList(name, username)
+
