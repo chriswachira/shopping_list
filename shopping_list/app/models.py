@@ -41,8 +41,23 @@ class User(object):
         self.username = email.split('@')[0]
         self.password = password
 
+
         self.date_joined = datetime.datetime.now()
         self.shopping_lists = []
+
+        self.attribs = {"username": self.username,
+                   "pwd": self.password,
+                   "email": self.email,
+                   "date_joined": self.date_joined,
+                   "shopping_lists": len(self.shopping_lists)
+                  }
+
+
+        #print(attribs)
+
+        #self._shop = Shop()
+        #self._shop.add_user(attribs, self.username)
+
 
     def get_attribs(self):
         return {'username': self.username,
@@ -53,43 +68,105 @@ class User(object):
 
 
 
-class Shop(object):
-    def __init__(self):
-        self.users = {}
-        self.filename = "users.json"
 
-    def add_user(self, username, password):
 
-        import os
-        if os.path.isfile(self.filename):
-            #print(os.getcwd())
-            with open(self.filename) as usr_obj:
-                self.users = json.load(usr_obj)
-                if username in self.users.keys():
-                    return "Username already taken"
-                else:
-                    self.users[username] = password
-                    with open(self.filename, 'w') as usr_wr:
-                        json.dump(self.users, usr_wr, indent=2)
+#class Shop(object):
+#    def __init__(self):
+#        self._users = []
+#        #self._filename = "users.json"
+#
+#    def add_user(self, attribs, username):
+        #username = attribs["username"]
 
+        #import os
+        #if os.path.isfile(self._filename):
+        #    #print(os.getcwd())
+        #    with open(self._filename) as usr_obj:
+        #        self._attribs = json.dumps(usr_obj)
+        #        usernames = []
+        #        for attrib in self._attribs:
+        #            usernames.append(attrib[0])
+        #            if username in usernames:
+        #                return "Username already taken"
+        #            else:
+        #                self._attribs.append(attribs)
+        #                with open(self._filename, 'w') as usr_wr:
+        #                    json.dumps(self._attribs, usr_wr)
+
+        # else:
+        #     with open(self._filename, 'w') as usr_obj:
+        #         json.dumps(self._attribs, usr_obj)
+
+        #if len(self._users) == 0:
+        #    self._users.append(attribs)
+        #    print(self._users)
+        #else:
+        #    usernames = []
+        #    for usr_attribs in self._users:
+        #        usernames.append(usr_attribs["username"])
+        #        #print("USERS ATTRIBS " + usr_attribs["username"])
+        #        if username in usernames:
+        #            return "Username already taken! Try another..."
+        #        else:
+        #            self._users.append(attribs)
+
+        #print(self._users)
+
+    #def remove_user(self, username, password):
+    #    with open(self.filename) as usr_obj:
+    #        self.users = json.load(usr_obj)
+    #        pwd = self.users[username]
+    #        if password == pwd:
+    #            self.users.pop(username, None)
+    #            with open(self.filename, 'w') as usr_obj:
+    #                json.dump(self.users, usr_obj, indent=2)
+    #                return self.users
+    #        else:
+    #            return "Password incorrect. Remove user failed."
+
+users = []
+def add_user(attribs):
+    global users
+    username = attribs["username"]
+
+    if len(users) == 0:
+                users.append(attribs)
+                print(users)
+    else:
+        usernames = []
+        for usr_attribs in users:
+            usernames.append(usr_attribs["username"])
+        if username in usernames:
+            return "Username already taken! Try another..."
         else:
-            with open(self.filename, 'w') as usr_obj:
-                json.dump(self.users, usr_obj, indent=2)
+            users.append(attribs)
 
-
-        print(self.users)
-
-    def remove_user(self, username, password):
-        with open(self.filename) as usr_obj:
-            self.users = json.load(usr_obj)
-            pwd = self.users[username]
-            if password == pwd:
-                self.users.pop(username, None)
-                with open(self.filename, 'w') as usr_obj:
-                    json.dump(self.users, usr_obj, indent=2)
-                    return self.users
-            else:
-                return "Password incorrect. Remove user failed."
-
-
-
+#def remove_user(username, password):
+#    global users
+#
+#    def search_user(username):
+#        for user in users:
+#            print(user)
+#            if user["username"] == username:
+#                return user
+#            else:
+#                return None
+#
+#    _user = search_user("bethuel")
+#    print(_user)
+#    if _user == None:
+#        return "User not found."
+#    else:
+#        password_confirm = _user.get("pwd")
+#
+#    def find(lst, key, value):
+#        for i, dic in enumerate(lst):
+#            if dic[key] == value:
+#                return i
+#        return -1
+#
+#    if password == password_confirm:
+#        user_dict_index = find(users, "username", username)
+#        users.pop(user_dict_index)
+#    else:
+#        return "Password incorrect. Remove user failed."
