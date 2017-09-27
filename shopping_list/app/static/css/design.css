@@ -1,0 +1,31 @@
+body{
+    background-image: url("../bg_2.png");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1#signup{
+   color: #ffffff;
+}
+
+.control-label{
+    color: #ffffff;
+}
+
+#reg_panel{
+    background-color: #000000;
+    opacity: 0.7;
+    width: 430px;
+    height: 520px;
+}
+
+div#notifs, div#empty {
+    width: 350px;
+}
+
+
+input{
+    background-color: #00000;
+    opacity: 0.9;
+    color: #ff23ff;
+}
