@@ -77,14 +77,11 @@ class User(object):
         #self.date_joined = datetime.datetime.now()
         #self.shopping_lists = []
 
-        #self.attribs = {"firstname": self.firstname,
-        #                "lastname": self.lastname,
-        #                "username": self.username,
-        #                "pwd": self.password,
-        #                "email": self.email,
-        #                "date_joined": self.date_joined,
-        #                "shopping_lists": len(self.shopping_lists)
-        #               }
+        self.attribs = {"firstname": self.firstname,
+                        "lastname": self.lastname,
+                        "username": self.username,
+                        "pwd": self.password,
+                        "email": self.email}
 
 
         #print(attribs)
@@ -172,8 +169,10 @@ def add_user(attribs):
             usernames.append(usr_attribs["username"])
         if username in usernames:
             return "Username already taken! Try another..."
+            print(users)
         else:
             users.append(attribs)
+            print(users)
 
 def search_user(username):
         for user in users:
