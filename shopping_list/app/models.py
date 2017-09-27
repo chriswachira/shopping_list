@@ -7,12 +7,12 @@ items = []
 
 class Item(object):
     """Creates an item"""
-    def __init__(self, name, price, quantity, vendor, descr):
+    def __init__(self, name, price, descr, *args):
         self.name = name #name of item
         self.price = price #price of item
-        self.vendor = vendor #item vendor/seller
-        self.quantity = quantity #remaining quantity of item
-        self.descr = descr # item description
+        self.vendor = args.get("vendor") #item vendor/seller
+        #self.quantity = quantity #remaining quantity of item
+        #self.descr = descr # item description
         self.rating = 0.0 # average rating of item
 
     def view_item(self):
@@ -65,22 +65,26 @@ class ShoppingList(object):
 class User(object):
     """Creates User's object"""
 
-    def __init__(self, email, password):
+    def __init__(self, firstname, lastname, email, password):
+        self.firstname = firstname
+        self.lastname = lastname
         self.email = email
 
         self.username = email.split('@')[0]
         self.password = password
 
 
-        self.date_joined = datetime.datetime.now()
-        self.shopping_lists = []
+        #self.date_joined = datetime.datetime.now()
+        #self.shopping_lists = []
 
-        self.attribs = {"username": self.username,
-                   "pwd": self.password,
-                   "email": self.email,
-                   "date_joined": self.date_joined,
-                   "shopping_lists": len(self.shopping_lists)
-                  }
+        #self.attribs = {"firstname": self.firstname,
+        #                "lastname": self.lastname,
+        #                "username": self.username,
+        #                "pwd": self.password,
+        #                "email": self.email,
+        #                "date_joined": self.date_joined,
+        #                "shopping_lists": len(self.shopping_lists)
+        #               }
 
 
         #print(attribs)
@@ -90,10 +94,10 @@ class User(object):
 
 
     def get_attribs(self):
-        return {'username': self.username,
-                'email': self.email,
-                'date_joined': self.date_joined,
-                'shopping_lists': len(self.shopping_lists)}
+        return {'firstname': self.firstname,
+                'lastname': self.lastname,
+                'username': self.username,
+                'email': self.email}
 
 
 
@@ -171,6 +175,16 @@ def add_user(attribs):
         else:
             users.append(attribs)
 
+def search_user(username):
+        for user in users:
+            print(user)
+            if user["username"] == username:
+                return user
+           # else:
+                #return None
+
+def get_user(username):
+    search_user(username)
 #def remove_user(username, password):
 #    global users
 #
@@ -201,6 +215,6 @@ def add_user(attribs):
 #    else:
 #        return "Password incorrect. Remove user failed."
 
-make_shopping_list(name, username):
-    shop_list = ShoppingList(name, username)
+#make_shopping_list(name, username):
+ #   shop_list = ShoppingList(name, username)
 
