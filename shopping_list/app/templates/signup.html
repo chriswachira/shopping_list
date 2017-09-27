@@ -3,11 +3,39 @@
 
 {% block title %}Shopping List{% endblock %}
 
-{% block page_content %}
-<div class='page_header'>
-    <h1>Hi there!</h1>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" id="1">
+            <div class='page_header'>
+                <h1>Hi there!</h1>
+            </div>
+
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="col-sm-4" id="2">
+
+            
+
+            {% block page_content %}
+            <br/><br/><br/>
+            {{ wtf.quick_form(form) }}
+            {% endblock %}
+        </div>
+
+        <div class="col-sm-4" id="3">
+        </div>
+
+
+    </div>
 </div>
 
-{{ wtf.quick_form(form) }}
 {% endblock %}
-
