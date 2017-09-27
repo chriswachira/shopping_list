@@ -15,11 +15,13 @@ class RegistrationForm(FlaskForm):
         EqualTo('password_confirm', message='Passwords should match')])
     password_confirm = PasswordField("Enter password again", validators=[
         DataRequired()])
+    register = SubmitField('Register')
 
 class LoginForm(FlaskForm):
     """Create login form for web app"""
     username = StringField("Username",
             validators=[Required(), Length(min=6, max=30)])
     password = PasswordField('New Password', validators=[DataRequired()])
+    login = SubmitField('Login')
 
 
