@@ -1,25 +1,36 @@
-from flask import render_template
-from app import app
-#from flask.ext.wtf import Form
-#from wtforms import StringField, SubmitField
-#from wtforms.validatoes import Required
+from flask import redirect, flash, make_response, render_template, url_for, session
+from forms import RegistrationForm
+from flask.views import View
+from models import User, add_user
 
-#@app.route('/')
-#def index():
- #   return "Hello, World!"
+class Index(View):
+    methods = ['GET', 'POST']
 
-@app.route('/login')
-def login():
-    return render_template("sign_in.html")
+    def dispatch_request(self):
+        reg_form = RegistrationForm()
+        if reg_form.validate_on_submit():
+            user = User(reg_form.firstname.data,
+                        reg_form.lastname.data,
+                        reg_form.email.data,
+                        reg_form.password.data)
+            status = add_user(user.attribs)
+            if status != None:
+                flash("Email you entered is already registered!")
+                reg_form.firstname.data = ""
+                reg_form.lastname.data = ""
+                reg_form.email.data = ""
+                reg_form.password.data = ""
+                reg_form.password_confirm.data = ""
+            else:
+              #return redirect(url_for('dashboard'))
+                flash('Successfully registered!')
+                reg_form.firstname.data = ""
+                reg_form.lastname.data = ""
+                reg_form.email.data = ""
+                reg_form.password.data = ""
+                reg_form.password_confirm.data = ""
 
-@app.route('/signup')
-def sign_in():
-    return render_template("sign_up.html")
 
-@app.route('/dashboard')
-def dashboard():
-    #return render_template("dashboard.html")
-    return render_template("dashboard.html")
-#class LoginForm(Form):
- #   username = StringField("Username:", validators=[Required()])
-  #  password = PasswordField("Password: ", validators=[Required()])
+        return render_template('signup.html', form=reg_form)
+
+
