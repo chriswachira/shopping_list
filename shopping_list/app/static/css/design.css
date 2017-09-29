@@ -14,18 +14,26 @@
     src: url('Gotham-Bold.ttf');
 }
 
+body{
+    background-image: url("../bg.png");
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
 h1#signup_header{
-    font-family: gotham-medium;
-   color: #000000;
+    font-family: gotham-light;
+   color: #ffffff;
    font-size: 4.6em;
 }
 
 p{
     font-size: 1.5em;
     font-family: gotham;
+    color: #ffffff;
+
 }
 .control-label{
-    color: #000000;
+    color: #ffffff;
     font-family: gotham-light;
 }
 
@@ -44,7 +52,7 @@ div#notifs{
 
 
 input{
-    background-color: #000000;
+    background-color: #ffffff;
     opacity: 0.9;
     color: #ff23ff;
 }
