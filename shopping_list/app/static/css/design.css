@@ -1,3 +1,4 @@
+/*------------------GLOBAL STYLING -------------------*/
 @font-face {
     
     font-family: gotham-light;
@@ -37,9 +38,9 @@ p{
     font-family: gotham-light;
 }
 
-div#reg_panel{
+/*div#reg_panel{
     margin-left: 40px;
-}
+    }*/
 
 /*div#empty {
     width: 300px;
@@ -47,17 +48,19 @@ div#reg_panel{
 }*/
 
 div#notifs{
-    width: 400px;
+    width: 410px;
 }
 
 
-input{
+input.form-control{
     background-color: #ffffff;
     opacity: 0.9;
-    color: #ff23ff;
+    color: #000000;
+    font-family: gotham-medium;
 }
 
 input#register{
+    margin-top: 10px;
     font-family: gotham-bold;
     font-size: 1.2em;
     background-color: #33cc33;
@@ -66,10 +69,12 @@ input#register{
     height: 45px;
 }
 
+
 a#login_link{
     font-family: gotham-bold;
     font-size: 1em;
     margin-left: 15%;
+    color: #0066ff;
 }
 
 .navbar-brand{
@@ -80,4 +85,8 @@ a#login_link{
 ul.nav{
     font-family: gotham-bold;
     color: #000000;
+}
+
+div.alert{
+    font-family: gotham-medium;
 }

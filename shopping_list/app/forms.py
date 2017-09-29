@@ -13,7 +13,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('New Password', validators=[DataRequired(),
         Length(min=6, max=15),
         EqualTo('password_confirm', message='Passwords should match')])
-    password_confirm = PasswordField("Enter password again", validators=[
+    password_confirm = PasswordField("Confirm password", validators=[
         DataRequired()])
     register = SubmitField('Register')
 
