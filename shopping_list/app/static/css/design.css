@@ -2,17 +2,17 @@
 @font-face {
     
     font-family: gotham-light;
-    src: url('Gotham-Light.ttf');
+    src: url('../fonts/Gotham-Light.ttf');
 }
 
 @font-face {
     font-family: gotham-medium;
-    src: url('Gotham-Medium.ttf');
+    src: url('../fonts/Gotham-Medium.ttf');
 }
 
 @font-face {
     font-family: gotham-bold;
-    src: url('Gotham-Bold.ttf');
+    src: url('../fonts/Gotham-Bold.ttf');
 }
 
 body{
