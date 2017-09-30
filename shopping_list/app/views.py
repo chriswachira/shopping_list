@@ -16,11 +16,7 @@ class Index(View):
             status = add_user(user.attribs)
             if status != None:
                 flash("Email you entered is already registered!")
-                reg_form.firstname.data = ""
-                reg_form.lastname.data = ""
-                reg_form.email.data = ""
-                reg_form.password.data = ""
-                reg_form.password_confirm.data = ""
+
             else:
               #return redirect(url_for('dashboard'))
                 flash('Successfully registered!')
@@ -29,6 +25,9 @@ class Index(View):
                 reg_form.email.data = ""
                 reg_form.password.data = ""
                 reg_form.password_confirm.data = ""
+
+                #return url_for(Index)
+
 
 
         return render_template('signup.html', form=reg_form)

@@ -48,7 +48,7 @@ p{
 }*/
 
 div#notifs{
-    width: 410px;
+    min-width:280px;
 }
 
 
@@ -89,4 +89,5 @@ ul.nav{
 
 div.alert{
     font-family: gotham-medium;
+    min-width: 280px;
 }
