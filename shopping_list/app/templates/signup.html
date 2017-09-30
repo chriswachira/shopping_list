@@ -31,7 +31,7 @@
             {{ wtf.quick_form(form) }}
             {% endblock %}
             <br/>
-            <a href=# id="login_link">Already have an account? Sign in ></a>
+            <a href={{ url_for('login') }} id="login_link">Already have an account? Sign in ></a>
         </div>
 
         <div class="col-sm-4" id="empty">
