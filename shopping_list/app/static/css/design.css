@@ -21,10 +21,17 @@ body{
 	background-attachment: fixed;
 }
 
-h1#signup_header{
+h1#signup_header {
     font-family: gotham-light;
    color: #ffffff;
    font-size: 4.6em;
+}
+
+h1#login_header{
+    font-family: gotham-light;
+    color: #ffffff;
+    font-size: 4.0em;
+
 }
 
 p{
@@ -48,7 +55,7 @@ p{
 }*/
 
 div#notifs{
-    min-width:280px;
+    min-width:220px;
 }
 
 
@@ -59,8 +66,8 @@ input.form-control{
     font-family: gotham-medium;
 }
 
-input#register{
-    margin-top: 10px;
+input#register, input#login{
+    margin-top: 20px;
     font-family: gotham-bold;
     font-size: 1.2em;
     background-color: #33cc33;
@@ -70,10 +77,11 @@ input#register{
 }
 
 
-a#login_link{
+a#login_link, a#signup_link{
     font-family: gotham-bold;
     font-size: 1em;
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
     color: #0066ff;
 }
 
@@ -87,7 +95,11 @@ ul.nav{
     color: #000000;
 }
 
+div#login_panel{
+    margin-top: 70px;
+}
+
 div.alert{
     font-family: gotham-medium;
-    min-width: 280px;
+    min-width: 220px;
 }
