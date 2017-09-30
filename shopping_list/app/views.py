@@ -3,6 +3,14 @@ from forms import RegistrationForm, LoginForm
 from flask.views import View
 from models import User, add_user, get_user
 
+class Index(View):
+    def dispatch_request(self):
+        logged_in = session.get('username')
+        if logged_in:
+            return redirect(url_for('dashboard'))
+        else:
+            return redirect(url_for('login'))
+
 class Register(View):
     methods = ['GET', 'POST']
 
@@ -20,13 +28,15 @@ class Register(View):
             else:
               #return redirect(url_for('dashboard'))
                 flash('Successfully registered!')
+                username = reg_form.email.data.split('@')[0]
+                session['username'] = username
                 reg_form.firstname.data = ""
                 reg_form.lastname.data = ""
                 reg_form.email.data = ""
                 reg_form.password.data = ""
                 reg_form.password_confirm.data = ""
 
-                #return url_for(Index)
+                return redirect(url_for('dashboard'))
 
 
 
@@ -45,9 +55,11 @@ class Login(View):
             if search != None:
                 print("Search result: ", search)
                 if login_form.password.data == search['pwd']:
+                    session['username'] = login_form.username.data
                     flash('Logged in successfully!')
                     login_form.username.data = ""
                     login_form.password.data = ""
+                    return redirect(url_for('dashboard'))
                 else:
                     flash('Username or password incorrect!')
                     login_form.username.data = ""
@@ -57,3 +69,14 @@ class Login(View):
 
 
         return render_template('login.html', form=login_form)
+
+class Dashboard(View):
+    methods = ['GET', 'POST']
+
+    def dispatch_request(self):
+        logged_in = session.get('username')
+        if logged_in:
+            return render_template('dashboard.html', username=session.get('username'))
+        else:
+            return redirect(url_for('index'))
+
