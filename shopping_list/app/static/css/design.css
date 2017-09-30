@@ -34,6 +34,12 @@ h1#login_header{
 
 }
 
+h1{
+    font-family: gotham-light;
+    color: #ffffff;
+    font-size: 2.0em;
+}
+
 p{
     font-size: 1.5em;
     font-family: gotham;
@@ -45,10 +51,9 @@ p{
     font-family: gotham-light;
 }
 
-/*div#reg_panel{
-    margin-left: 40px;
-    }*/
-
+div#reg_panel{
+    margin-left: 20px;
+    }
 /*div#empty {
     width: 300px;
     height: 500px;
@@ -63,7 +68,9 @@ input.form-control{
     background-color: #ffffff;
     opacity: 0.9;
     color: #000000;
+    height: 40px;
     font-family: gotham-medium;
+    font-size: 1em;
 }
 
 input#register, input#login{
@@ -88,6 +95,7 @@ a#login_link, a#signup_link{
 .navbar-brand{
     font-family: gotham-bold;
     color: #ffffff;
+    font-size: 1.8em;
 }
 
 ul.nav{
