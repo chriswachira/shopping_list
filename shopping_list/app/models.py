@@ -174,16 +174,13 @@ def add_user(attribs):
             users.append(attribs)
             print(users)
 
-def search_user(username):
+def get_user(username):
         for user in users:
-            print(user)
+            #print(user)
             if user["username"] == username:
                 return user
-           # else:
-                #return None
 
-def get_user(username):
-    search_user(username)
+
 #def remove_user(username, password):
 #    global users
 #
